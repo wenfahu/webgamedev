@@ -2,62 +2,62 @@
       <f7-grid no-gutter class="keypad">
 
           <f7-col class="gray" width="25">
-              <div @click="press">C</div>
+              <div @click="press">{{keys[0]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">±</div>
+              <div @click="press">{{keys[1]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">%</div>
+              <div @click="press">{{keys[2]}}</div>
           </f7-col>
           <f7-col class="orange" width="25">
-              <div @click="press">/</div>
+              <div @click="press">{{keys[3]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">7</div>
+              <div @click="press">{{keys[4]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">8</div>
+              <div @click="press">{{keys[5]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">9</div>
+              <div @click="press">{{keys[6]}}</div>
           </f7-col>
           <f7-col class="orange" width="25">
-              <div @click="press">x</div>
+              <div @click="press">{{keys[7]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">4</div>
+              <div @click="press">{{keys[8]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">5</div>
+              <div @click="press">{{keys[9]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">6</div>
+              <div @click="press">{{keys[10]}}</div>
           </f7-col>
           <f7-col class="orange" width="25">
-              <div @click="press">-</div>
+              <div @click="press">{{keys[11]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">1</div>
+              <div @click="press">{{keys[12]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">2</div>
+              <div @click="press">{{keys[13]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">3</div>
+              <div @click="press">{{keys[14]}}</div>
           </f7-col>
           <f7-col class="orange" width="25">
-              <div @click="press">+</div>
+              <div @click="press">{{keys[15]}}</div>
           </f7-col>
 
           <f7-col class="gray" width="50">
-              <div @click="press">0</div>
+              <div @click="press">{{keys[16]}}</div>
           </f7-col>
           <f7-col class="gray" width="25">
-              <div @click="press">.</div>
+              <div @click="press">{{keys[17]}}</div>
           </f7-col>
           <f7-col class="orange" width="25">
-              <div @click="press">=</div>
+              <div @click="press"{{keys[18]}}=</div>
           </f7-col>
 
       </f7-grid>
@@ -91,9 +91,31 @@
 }
 </style>
 <script>
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 export default{
     data: function(){
         return {
+            keys:[ 'C', '±', '%', '/', '7', '8', '9',
+                'x', '4', '5', '6', '-', '1', '2', '3',
+                '+', '0', '.', '=']
         }
     },
     props:{
@@ -148,6 +170,8 @@ export default{
           this.$emit('input', {
             expression: self.current
           });
+          this.keys = shuffle(this.keys);
+          this.$forceUpdate();
         }
     }
 }

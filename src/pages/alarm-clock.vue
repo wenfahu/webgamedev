@@ -12,7 +12,7 @@
         </f7-block>
     </f7-page>
 </template>
-<style>
+<style scoped>
 span.iOdometer{
     font-size: 3em;
     color: #fff;
@@ -26,6 +26,9 @@ span.iOdometer{
     position: absolute;
     right: 20px;
     top: 30%;
+}
+.content-block-inner{
+    background-color: #000;
 }
 .dark{
     background-color: #000;
@@ -87,11 +90,11 @@ export default{
         onChange: async function(){
             if(this.running){
                 clearInterval(this.id0);
-                await sleep(1000);
+                await sleep(500);
                 clearInterval(this.id1);
-                await sleep(1000);
+                await sleep(500);
                 clearInterval(this.id2);
-                await sleep(1000);
+                await sleep(500);
                 clearInterval(this.id3);
             }else{
                 this.id0 = setInterval(()=>{
