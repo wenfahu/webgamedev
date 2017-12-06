@@ -28,6 +28,18 @@ export default [
       component: require('./pages/alarm-clock.vue')
   },
   {
+      path: '/cal/',
+      component: require('./pages/cal.vue')
+  },
+  {
+      path: '/msg/',
+      component: require('./pages/sms.vue')
+  },
+  {
+      path: '/notes/',
+      component: require('./pages/notes.vue')
+  },
+  {
       path: '/dynamic-route/blog/:blogId/post/:postId/',
       component: require('./pages/dynamic-route.vue')
   }

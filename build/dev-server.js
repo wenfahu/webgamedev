@@ -26,6 +26,12 @@ var compiler = webpack(webpackConfig)
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   // quiet: true,
+  proxy:{
+    '/napi/*': {
+      target: 'http://localhost:8889',
+      pathRewrite: {"^/napi": ""}
+    },
+  },
   stats: {
     colors: true,
     chunks: false

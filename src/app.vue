@@ -53,6 +53,9 @@
               <f7-list-item link="/siri/" title="siri" link-view="#main-view" link-close-panel></f7-list-item>
               <f7-list-item link="/weather/" title="weather" link-view="#main-view" link-close-panel></f7-list-item>
               <f7-list-item link="/clock/" title="clock" link-view="#main-view" link-close-panel></f7-list-item>
+              <f7-list-item link="/cal/" title="cal" link-view="#main-view" link-close-panel></f7-list-item>
+              <f7-list-item link="/msg/" title="sms" link-view="#main-view" link-close-panel></f7-list-item>
+              <f7-list-item link="/notes/" title="notes" link-view="#main-view" link-close-panel></f7-list-item>
             </f7-list>
           </f7-page>
         </f7-pages>

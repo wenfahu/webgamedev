@@ -46,7 +46,6 @@ import 'vue-awesome/icons/microphone';
 import Icon from 'vue-awesome/components/Icon';
 import $ from "jquery";
 import 'lettering.js';
-import 'textillate';
 
 var audioContext = null;
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -54,15 +53,6 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 // grab an audio context
 audioContext = new AudioContext();
 var meter = null;
-$('.tlt').textillate({
-    in: {
-        effect: 'fadeInLeft',
-    },
-    out:{
-        effect: 'fadeOutRight',
-        delay: 50,
-    }
-});
 
 export default{
     components:{
@@ -84,7 +74,6 @@ export default{
             style: 'ios9',
             speed: 0.2,
         });
-        $('.tlt').textillate('in')
     },
     methods:{
         // Attempt to get audio input
@@ -145,13 +134,11 @@ function createAudioMeter(audioContext,clipLevel,averaging,clipLag) {
 	processor.shutdown =
 		function(){
             console.log(this.volumeMax);
-            $('.tlt').textillate('out');
             if(this.volumeMax < 0.05){
                 $('.tlt').text("请大声点");
             }else{
                 $('.tlt').text("我听不懂你说了什么");
             }
-            $('.tlt').textillate('in');
 			this.disconnect();
 			this.onaudioprocess = null;
 		};
