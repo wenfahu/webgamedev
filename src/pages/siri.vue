@@ -81,26 +81,43 @@ export default{
         // Attempt to get audio input
         toggle_audio: function() {
             this.isRecording = !this.isRecording;
+            console.log('recording');
             if(this.isRecording){
                 this.siri.start();
                 this.siri.setAmplitude(1);
                 navigator.getUserMedia = navigator.getUserMedia ||
                     navigator.webkitGetUserMedia ||
-                    navigator.mozGetUserMedia;
+                    navigator.mozGetUserMedia ||
+                    navigator.mediaDevices.getUserMedia;
                 // ask for an audio input
-                navigator.getUserMedia(
-                {
-                    "audio": {
-                        "mandatory": {
-                            "googEchoCancellation": "false",
-                            "googAutoGainControl": "false",
-                            "googNoiseSuppression": "false",
-                            "googHighpassFilter": "false"
-                        },
-                        "optional": []
-                    }, 
-                }, gotStream, didntGetStream);
+                if (navigator.getUserMedia){
+                    navigator.getUserMedia(
+                    {
+                        "audio": {
+                            "mandatory": {
+                                "googEchoCancellation": "false",
+                                "googAutoGainControl": "false",
+                                "googNoiseSuppression": "false",
+                                "googHighpassFilter": "false"
+                            },
+                            "optional": []
+                        }, 
+                    }, gotStream, didntGetStream);
+                } 
             }else{
+                console.log('audio shut down');
+                if(!meter){
+                    let test = Math.round(Math.random());
+                    if(test){
+                        $('.tlt').text("请大声点");
+                        let audio = new Audio(louder_audio);
+                        audio.play();
+                    }else{
+                        $('.tlt').text("我听不懂你说了什么");
+                        let audio = new Audio(understand_audio);
+                        audio.play();
+                    }
+                }
                 meter.shutdown();
                 this.siri.setAmplitude(0);
                 //this.siri.stop();
