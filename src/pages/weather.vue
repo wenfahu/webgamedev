@@ -57,13 +57,14 @@ export default{
         return {
             latitude: 0.0,
             longitude: 0.0,
-            city: 'Hello from MELBOURNE',
+            city: 'Utopia',
             curTemp: null,
             displayMode: CELSIUS,
             dataObj: null,
             weatherMain: 'Fine',
             weatherDesc: 'Clear day',
             errorMsg: '',
+            weatherImage: sun,
         }
     },
     computed: {
@@ -122,7 +123,8 @@ export default{
                 return;
             }
             console.log('Getting current position..');
-            var options = {timeout:60000};
+            var options = 
+                {maximumAge:60000, timeout:5000, enableHighAccuracy:true};
             navigator.geolocation.getCurrentPosition(this.success, this.error, options);
         },
         success: function(position) {
@@ -134,8 +136,8 @@ export default{
             this.getWeather();
         },
         error: function(err) {
-            this.errorMsg = "Unable to retrieve your location";
-            this.city = this.errorMsg;
+            // this.errorMsg = "Unable to retrieve your location";
+            // this.city = this.errorMsg;
             
             console.warn(`ERROR(${err.code}): ${err.message}`);
             console.warn(this.errorMsg);
