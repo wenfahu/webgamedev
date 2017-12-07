@@ -1,5 +1,6 @@
 <template>
     <f7-page>
+    <f7-navbar title="Messages" back-link="Back" sliding></f7-navbar>
         <f7-messages id="msg-content">
             <f7-message v-for="msg in messages" :text="msg.m" :type="msg.type">
             </f7-message>

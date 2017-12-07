@@ -1,5 +1,6 @@
 <template>
     <f7-page>
+        <f7-navbar title="Alarm" back-link="Back" sliding></f7-navbar>
         <f7-block class="dark" inner>
             <span>
                 <span id="cnt0" class="iOdometer"> </span>
@@ -15,11 +16,11 @@
 <style scoped>
 span.iOdometer{
     font-size: 3em;
-    color: #fff;
+    color: #000;
 }
 .clock{
     font-size: 3em;
-    color: #fff;
+    color: #000;
 }
 .switch-btn{
     display: inline;

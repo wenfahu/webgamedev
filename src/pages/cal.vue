@@ -1,5 +1,6 @@
 <template>
     <f7-page>
+    <f7-navbar title="Calendar" back-link="Back" sliding></f7-navbar>
         <div class='cal-header'>
             <div class="header-row">
                 <span class="header-col">S </span>

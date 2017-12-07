@@ -46,6 +46,8 @@ import 'vue-awesome/icons/microphone';
 import Icon from 'vue-awesome/components/Icon';
 import $ from "jquery";
 import 'lettering.js';
+import louder_audio from '../assets/louder.mp3';
+import understand_audio from '../assets/not_understand.mp3';
 
 var audioContext = null;
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -136,8 +138,12 @@ function createAudioMeter(audioContext,clipLevel,averaging,clipLag) {
             console.log(this.volumeMax);
             if(this.volumeMax < 0.05){
                 $('.tlt').text("请大声点");
+                let audio = new Audio(louder_audio);
+                audio.play();
             }else{
                 $('.tlt').text("我听不懂你说了什么");
+                let audio = new Audio(not_understand);
+                audio.play();
             }
 			this.disconnect();
 			this.onaudioprocess = null;

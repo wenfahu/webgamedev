@@ -1,5 +1,6 @@
 <template>
     <f7-page>
+        <f7-navbar title="Weather" back-link="Back" sliding></f7-navbar>
         <div id="weather-page" :style="{ 'background-image': 'url(' + dayOrNight + ')' }">
             <div id="effect"></div>
             <h2>{{ city }}</h2>
