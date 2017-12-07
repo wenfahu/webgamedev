@@ -139,6 +139,7 @@
 <style>
 .page-content{
     background: url(~assets/wallpaper.png);
+    background-size: cover;
 }
 </style>
 

@@ -57,14 +57,14 @@ export default{
         return {
             latitude: 0.0,
             longitude: 0.0,
-            city: 'Utopia',
+            //city: 'Utopia',
             curTemp: null,
             displayMode: CELSIUS,
             dataObj: null,
             weatherMain: 'Fine',
             weatherDesc: 'Clear day',
             errorMsg: '',
-            weatherImage: sun,
+            //weatherImage: sun,
         }
     },
     computed: {
@@ -136,8 +136,9 @@ export default{
             this.getWeather();
         },
         error: function(err) {
-            // this.errorMsg = "Unable to retrieve your location";
-            // this.city = this.errorMsg;
+//            this.errorMsg = "Unable to retrieve your location";
+            this.city = "Utopia";
+            this.weatherImage =sun;
             
             console.warn(`ERROR(${err.code}): ${err.message}`);
             console.warn(this.errorMsg);

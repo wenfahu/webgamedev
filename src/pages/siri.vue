@@ -142,7 +142,7 @@ function createAudioMeter(audioContext,clipLevel,averaging,clipLag) {
                 audio.play();
             }else{
                 $('.tlt').text("我听不懂你说了什么");
-                let audio = new Audio(not_understand);
+                let audio = new Audio(understand_audio);
                 audio.play();
             }
 			this.disconnect();
