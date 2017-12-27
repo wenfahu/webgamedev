@@ -19,28 +19,24 @@
                         <figurecaption class="caption">Calculator</figurecaption>
                     </figure>
                 </f7-col>
-                <!--
                 <f7-col class='center-content' width='25'>
                     <figure>
                         <a href="/weather/"><img :src="weather"/></a>
                         <figurecaption class="caption">Weather</figurecaption>
                     </figure>
                 </f7-col>
-                -->
                 <f7-col class='center-content' width='25'>
                     <figure>
-                        <a href="/about/"><img :src="notes" /></a>
+                        <a href="/texts/"><img :src="notes" /></a>
                         <figurecaption class="caption">Notes</figurecaption>
                     </figure>
                 </f7-col>
-                <!--
                 <f7-col class='center-content' width='25'>
                     <figure>
                         <a href="siri"><img :src="siri" /></a>
                         <figurecaption class="caption">Siri</figurecaption>
                     </figure>
                 </f7-col>
-                -->
                 <f7-col class='center-content' width='25'>
                     <figure>
                         <a href="/cal/"><img :src="calendar" /></a>

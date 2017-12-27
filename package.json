@@ -36,6 +36,7 @@
     "jquery": "^3.2.1",
     "lettering.js": "^0.8.2",
     "luxon": "^0.2.4",
+    "matter-dom-plugin": "^1.0.0",
     "matter-js": "^0.13.0",
     "odometer": "^0.4.8",
     "physicsjs": "^0.7.0",

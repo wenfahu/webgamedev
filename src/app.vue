@@ -91,6 +91,7 @@
     </f7-views>
 
     <!-- Popup -->
+    <!--
     <f7-popup id="popup">
       <f7-view navbar-fixed>
         <f7-pages>
@@ -105,8 +106,11 @@
         </f7-pages>
       </f7-view>
     </f7-popup>
+    -->
 
     <!-- Login Screen -->
+
+    <!--
     <f7-login-screen id="login-screen">
       <f7-view>
         <f7-pages>
@@ -132,6 +136,7 @@
         </f7-pages>
       </f7-view>
     </f7-login-screen>
+    -->
 
   </div>
 </template>

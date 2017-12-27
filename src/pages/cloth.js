@@ -14,6 +14,24 @@ export default function() {
     var engine = Engine.create(),
         world = engine.world;
 
+    // function makePattern(pWidth) {
+    //     var canvas = document.createElement("canvas");
+    //     var ctx = canvas.getContext("2d");
+    //     canvas.width = canvas.height = (pWidth || 10 + Math.random() * 20 >> 0);
+    //     ctx.fillStyle = '#fff';
+    //     if (Math.random() * 2 < 1) {
+    //         ctx.arc(canvas.width / 2 >> 0, canvas.width / 2 >> 0, canvas.width * (Math.random() * 0.5), 0, 2 * Math.PI);
+    //         ctx.fill()
+    //     } else {
+    //         var half = canvas.width / 2;
+    //         var lineHeight = Math.random() * canvas.width >> 0;
+    //         ctx.translate(half, half);
+    //         ctx.rotate(Math.random() * 90 * Math.PI / 180);
+    //         ctx.fillRect(-canvas.width, -lineHeight / 2 >> 0, canvas.width * 2, lineHeight);
+    //     }
+    //     return ctx.createPattern(canvas, 'repeat');
+    // }
+
     // create renderer
     var render = Render.create({
         element: document.getElementById('effect'),
@@ -36,9 +54,9 @@ export default function() {
 
     // add bodies
     var group = Body.nextGroup(true),
-        particleOptions = { friction: 0.00001, collisionFilter: { group: group }, render: { visible: false }},
+        particleOptions = { friction: 0.00001,  collisionFilter: { group: group }, render: { visible: false, strokeStyle: '#000'}},
         constraintOptions = { stiffness: 0.06 },
-        cloth = Composites.softBody(0, 0, 40, 30, 8, 8, true, 8, particleOptions, constraintOptions);
+        cloth = Composites.softBody(0, 0, 40, 30, 8, 8, true, 20, particleOptions, constraintOptions);
 
     for (var i = 0; i < 40; i++) {
         cloth.bodies[i].isStatic = true;

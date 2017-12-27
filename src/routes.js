@@ -40,6 +40,10 @@ export default [
       component: require('./pages/notes.vue')
   },
   {
+      path: '/texts/',
+      component: require('./pages/texts.vue')
+  },
+  {
       path: '/dynamic-route/blog/:blogId/post/:postId/',
       component: require('./pages/dynamic-route.vue')
   }
