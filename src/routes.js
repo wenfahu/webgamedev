@@ -44,6 +44,10 @@ export default [
       component: require('./pages/texts.vue')
   },
   {
+      path: '/locker/',
+      component: require('./pages/locker.vue')
+  },
+  {
       path: '/dynamic-route/blog/:blogId/post/:postId/',
       component: require('./pages/dynamic-route.vue')
   }

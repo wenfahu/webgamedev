@@ -43,7 +43,13 @@
                         <figurecaption class="caption">Calendar</figurecaption>
                     </figure>
                 </f7-col>
-                <f7-col width='50'>
+                <f7-col class='center-content' width='25'>
+                    <figure>
+                        <a href="/locker/"><img :src="locker" /></a>
+                        <figurecaption class="caption">lock</figurecaption>
+                    </figure>
+                </f7-col>
+                <f7-col width='25'>
                 </f7-col>
             </f7-grid>
         </f7-content>
@@ -129,6 +135,7 @@ import weather from '../assets/AppIcon/weather.png'
 import siri from '../assets/AppIcon/Siri.png' 
 import message from '../assets/AppIcon/Messages.png' 
 import calendar from '../assets/AppIcon/calendar.png' 
+import locker from '../assets/AppIcon/locker.png'
 
 export default {
     data: function(){
@@ -142,6 +149,7 @@ export default {
             ass: ass,
             message: message,
             calendar: calendar,
+            locker: locker,
             likes : 0,
         }
     },
