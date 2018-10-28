@@ -2,7 +2,9 @@
   <f7-page>
     <f7-navbar title="Locker" back-link="Back" sliding></f7-navbar>
     <div id="slot">
-        <span>Slide to unlock</span>
+        <span class="notes">
+            <p>Slide to unlock</p>
+        </span>
         <div id="arrow">
             <img :src="arrow" />
         </div>
@@ -12,13 +14,20 @@
 
 <style lang="stylus" scoped>
 #slot
+    background: rgba(192, 203, 219, 0.3)
     color: White
     position: fixed
     bottom: 40px
+    left: 10%
     margin: 0 auto
     text-align: center
-    width: 100%
+    width: 80%
     height: 30px
+    .notes
+       display: flex
+       justify-content: center
+       align-items: center
+       height: 100%
     #arrow
         position: absolute
         left: 0
@@ -43,6 +52,12 @@ export default {
         var yOffset = 0;
         var dragItem = document.querySelector("#arrow>img");
         var container = document.querySelector("#arrow");
+        // var slot = document.querySelector('#slot');
+        // var endX = slot.offsetWidth ;
+        // var endY = slot.offsetHeight ;
+        var endX = 210;
+        var endY = 0;
+
 
         container.addEventListener("touchstart", dragStart, false);
         container.addEventListener("touchend", dragEnd, false);
@@ -67,6 +82,7 @@ export default {
             active = false;
         }
 
+        var that = this;
         function drag(e) {
             if (active) { 
                 e.preventDefault(); 
@@ -80,6 +96,10 @@ export default {
 
                 xOffset = currentX;
                 yOffset = currentY;
+                if (Math.abs(currentX - endX) < 5 && Math.abs(currentY - endY) <  1){
+                    that.$router.back();
+
+                }
                 setTranslate(currentX, currentY, dragItem);
             }
         }
